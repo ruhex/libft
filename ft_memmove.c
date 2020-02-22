@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:57:27 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/20 13:07:23 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/20 21:14:23 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void    *ft_memmove(void *dst, const void *src, size_t len)
 	
 	dest = dst;
 	source = src;
-	
-	i = 0;
-	while (i < len && *dest)
-	{
-		*dest = *source;
-		dest++;
-		source++;
-		i++;
-	}
+
+	if (source == dest || len == 0)
+		return ((void *)dst);
+
+	while (*dest++ = *source++)
+		if (--len == 0)
+			return ((void *)dst);
+	return ((void *)dst);
+
 }

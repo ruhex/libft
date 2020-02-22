@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 12:47:35 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 12:08:05 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/21 13:42:10 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/21 13:57:38 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memcpy(void *dest, const void *source, size_t n)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	unsigned char *d;
-	unsigned char *s;
+	unsigned char *str2;
+	unsigned char *tmp;
 
-	d = dest;
-	s = source;
-	n++;
+	str2 = s2;
 
-	while (--n != 0)
-	{
-		*d = *s;
-		d++;
-		s++;
-	}
+	while (*s1++);
+	while (*s1++ = *str2++);
+	return (s1);
 }
-	
 
-	
-
-	

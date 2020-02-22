@@ -6,11 +6,11 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 19:10:42 by m-movcha          #+#    #+#             */
-/*   Updated: 2019/10/28 23:05:01 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:15:43 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, char *src, size_t n)
 {
 	unsigned int i;
 

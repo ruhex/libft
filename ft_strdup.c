@@ -6,13 +6,25 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 15:34:58 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/20 15:49:22 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 12:40:51 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
+	int 	i;
+	char	*tmp;
+
+
+	tmp = s1;
+	i = 1;
+	while (*s1++)
+		i++;
+	s1 = tmp;
+	tmp = ft_strnew(i);
+
+	return (ft_memcpy(tmp, s1, i));
 
 }
