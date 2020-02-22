@@ -6,22 +6,26 @@
 #    By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/21 22:14:23 by m-movcha          #+#    #+#              #
-#    Updated: 2020/02/21 22:17:47 by m-movcha         ###   ########.fr        #
+#    Updated: 2020/02/21 22:30:43 by m-movcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
-HEADERS = .
+NAME = libft.a
+HEADERS = ./
 SRC = *.c
+OBJECTS = *.o
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wextra -Wall -Werror -o $(NAME) $(SRC) -I $(HEADERS)
+$(NAME): $(SRCS) libft.h
+	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRC)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(OBJECTS)
 
-re: clean all
+fclean: clean
+	@/bin/rm -f $(NAME)
 
-.PHONY: all clean re
+re: fclean all
