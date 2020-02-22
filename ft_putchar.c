@@ -6,11 +6,12 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:43:54 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/20 11:44:42 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 13:25:45 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
+#include "libft.h"
 
 void ft_putchar(char c)
 {

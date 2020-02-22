@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 17:12:51 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 23:56:29 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 13:26:27 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	if (num != 0)
 	{
-		str1 = s1;
-		str2 = s2;
+		str1 = (unsigned char*)s1;
+		str2 = (unsigned char*)s2;
 
 		while (--n != 0)
 		{

@@ -6,17 +6,19 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 12:47:35 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 12:08:05 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 13:25:02 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void *ft_memcpy(void *dest, const void *source, size_t n)
 {
 	unsigned char *d;
 	unsigned char *s;
 
-	d = dest;
-	s = source;
+	d = (unsigned char*)dest;
+	s = (unsigned char*)source;
 	n++;
 
 	while (--n != 0)
@@ -25,6 +27,7 @@ void *ft_memcpy(void *dest, const void *source, size_t n)
 		d++;
 		s++;
 	}
+	return (dest);
 }
 	
 

@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 20:39:41 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 20:43:16 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 12:37:31 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void ft_putnbr_fd(int n, int fd)
 		li *= -1;
 	}
 	if ((li / 10) > 0)
-		ft_putnbr(li / 10);
-	ft_putchar_fd(li % 10 + 48);
+		ft_putnbr_fd(li / 10, fd);
+	ft_putchar_fd(li % 10 + 48, fd);
 }
