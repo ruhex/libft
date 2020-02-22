@@ -6,9 +6,11 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 20:36:53 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 20:37:45 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 00:06:37 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void ft_putendl_fd(char const *s, int fd)
 {

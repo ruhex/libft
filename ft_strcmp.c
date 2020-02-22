@@ -6,13 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 21:45:04 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:47:43 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 23:59:04 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int i;
 	int j;

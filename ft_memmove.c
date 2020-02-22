@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:57:27 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/20 21:14:23 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 00:01:35 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void    *ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
 	unsigned char *dest;
 	unsigned char *source;
 	
