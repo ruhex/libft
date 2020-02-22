@@ -6,7 +6,7 @@
 #    By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/21 22:14:23 by m-movcha          #+#    #+#              #
-#    Updated: 2020/02/21 22:30:43 by m-movcha         ###   ########.fr        #
+#    Updated: 2020/02/21 22:34:22 by m-movcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ OBJECTS = *.o
 
 all: $(NAME)
 
-$(NAME): $(SRCS) libft.h
-	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRC)
+$(NAME): $(SRC) libft.h
+	@gcc -Wall -Wextra -Werror -I$(HEADERS) -c $(SRC)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 

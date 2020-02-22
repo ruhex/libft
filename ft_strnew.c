@@ -6,11 +6,11 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 09:20:52 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 12:41:32 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:46:35 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char 	*ft_strnew(size_t size)
 {

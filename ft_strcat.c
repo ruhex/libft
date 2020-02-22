@@ -6,9 +6,10 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 13:42:10 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 17:01:21 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:48:32 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strcat(char *s1, const char *s2)
 {

@@ -6,10 +6,11 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 20:22:28 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 20:34:01 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:35:12 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
 void ft_putchar_fd(char c, int fd)
 {

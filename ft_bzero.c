@@ -6,11 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 23:05:34 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 21:34:48 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:38:48 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
+#include "libft.h"
+
 
 void ft_bzero(void *s, size_t n)
 {
