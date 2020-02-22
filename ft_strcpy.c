@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/29 16:28:14 by m-movcha          #+#    #+#             */
-/*   Updated: 2019/10/29 16:33:28 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/21 16:17:33 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/21 16:20:56 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strcpy(char *s1, const char *s2)
 {
-	unsigned int i;
+	char *s;
 
-	i = 0;
-	while (i < size && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (i);
+	s = s1;
+	while ((*s++ = *s2++) != 0)
+		;
+	return (s1);
+
+
 }

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 08:34:55 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 16:44:44 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/21 16:55:08 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/21 16:56:00 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-void	*ft_memalloc(size_t size)
+int	ft_isdigit(int c)
 {
-	size_t *tmp;
-
-	tmp = (size_t)malloc(size);
-
-	if (tmp == NULL)
-		return (NULL);
+	if (c >= 48 && c <= 57)
+		return (16384);
+	return (0);
 }
