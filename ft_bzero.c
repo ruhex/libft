@@ -6,21 +6,24 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 23:05:34 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/18 23:50:07 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/21 21:34:48 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void bzero(char *s, int n)
+void ft_bzero(void *s, size_t n)
 {
-	int i;
+	unsigned char	*tmp;
+	int				i;
+	
 	i = 0;
+	tmp = s;
 
 	while (i < n)
 	{
-		*s = '\0';
-		s++;
+		*tmp = '\0';
+		tmp++;
 		i++;
 	}
 }
