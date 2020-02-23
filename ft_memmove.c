@@ -6,26 +6,34 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:57:27 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/22 13:27:59 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/22 23:07:15 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void    *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *dest;
-	unsigned char *source;
-	
-	dest = (unsigned char*)dst;
-	source = (unsigned char*)src;
+	size_t		i;
+	char		*dest;
+	const char	*source;
 
-	if (source == dest || len == 0)
-		return ((void *)dst);
-
-	while ((*dest++ = *source++))
-		if (--len == 0)
-			return ((void *)dst);
+	i = 0;
+	dest = (char*)dst;
+	source = (char*)src;
+	if (!(source == dest || len == 0))
+	{
+		if (source < dest)
+			while ((int)--len > -1)
+				*(dest + len) = *(source + len);
+		else
+		{
+			while (--len != 0)
+			{
+				*(dest + i) = *(source + i);
+				i++;
+			}
+		}
+	}
 	return ((void *)dst);
-
 }
