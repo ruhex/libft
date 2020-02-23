@@ -6,13 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 09:58:56 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:43:56 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/23 00:22:58 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
 	ft_memdel((void**)as);
 }

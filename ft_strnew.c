@@ -6,21 +6,20 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 09:20:52 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:46:35 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/23 00:21:14 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char 	*ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
-	size_t i;
-	char *tmp;
+	size_t	i;
+	char	*tmp;
 
-
+	size++;
 	if (!(tmp = ft_memalloc(size)))
 		return (NULL);
-	
 	i = 0;
 	while (i < size)
 		tmp[i++] = '\0';

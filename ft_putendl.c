@@ -6,13 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 19:06:09 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/22 11:46:54 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/23 00:32:49 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl(char const *s)
+void	ft_putendl(char const *s)
 {
 	ft_putstr(s);
 	ft_putchar('\n');
