@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:54:32 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/22 11:54:42 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/24 00:46:58 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define LIBFT_H
 # include <string.h>
 # include <stdlib.h>
+
+typedef struct	s_word
+{
+	char const 		*str;
+	int 			start;
+	int				end;
+	struct s_word	*next;
+}				t_word;
 
 typedef struct	s_list
 {
