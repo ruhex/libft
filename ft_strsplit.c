@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/24 19:35:48 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/25 17:16:43 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,50 +64,123 @@ int 	t_list_size(t_word *list)
 	return (i);
 }
 
-int		search(const char *s, char c, int index)
+t_word		*get_string(char const *s, t_word *list)
 {
 	int i;
+	int a;
+	int b;
+	char *tmp;
+	t_word *flag;
+	flag = list;
 
-	i = -1;
-	while (s[++i] != '\0')
+	while (flag)
 	{
-		if ((s[i] == c) && (s[i + 1] != c))
-			return (i);
+		i = -1;
+		a = flag->index.start;
+		b = flag->index.end;
+		tmp = (char *)malloc((b - a + 1) * sizeof(char));
+		while (++i <= (b - a))
+		{
+			tmp[i] = s[a + i];
+		}
+		flag->str = tmp;
+		flag = flag->next;	
+
 	}
+	return (list);
+}
+
+t_word		*search(const char *s, char c, int index, t_word *list)
+{
+	t_index	tmp;
+	int		flag;
+
+	flag = 0;
+	while (s[++index] != '\0')
+	{
+		if ((s[index] == c) && (s[index + 1] != c))
+		{
+			tmp.start = index + 1;
+			flag++;
+		}
+		if ((s[index] != c) && ((s[index + 1] == c)	
+					|| s[index + 1] == '\0'))
+		{
+			tmp.end = index;
+			flag++;
+		}
+		if (flag == 2)
+		{
+			t_push(&list, "str", tmp);
+			flag = 0;
+		}
+		
+	}
+	return (list);
 }
 
 char	**ft_strsplit(char const *s, char c)
 {
+	t_word *list;
 	char **tmp;
+	int list_size;
+	int i;
+	int j;
 
+	list = 0;
+	i = -1;
+	list = get_string(s, search(s, c, -1, list));
+	list_size = t_list_size(list);
 
+	tmp = (char **)malloc((list_size - 1) * sizeof(char *));
+
+	while (++i < list_size)
+	{
+		j = -1;
+		tmp[i] = (char *)malloc(ft_strlen(list->str) * sizeof(char));
+		while (++j <= ft_strlen(list->str))
+		{
+			tmp[i][j] = list->str[j];
+		}
+		list = list->next;
+	}
+
+	return (tmp);
+
+	
 
 
 }
 
 int main ()
 {
-	t_word **list;
+	//t_word *list;
 
-	t_index index;
+	//list = 0;
+	int i = -1;
+	int j = -1;
+	char str[] = "****string*test****mooore**doo";
+	//list = get_string(search(str, '*', -1, list));
+	
+	char **test;
 
-	index.start = 1;
-	index.end = 2;
+	test = ft_strsplit(str, '*');
 
-	t_word *test = t_create_elem("test", index);
+	while (test[++i])
+		printf("%s\n", test[i]);
+	//while(test[++i])
+ 	//{			while(test[i][++j])
+	//		write(1, test[i][j], 1);
+	//	write(1, "\n", 1);
+	//}
+	
 
-	if (test != NULL)
-		printf("TEST 1: OK	%s", test->index.start);
-
-	t_push(list, "test2", index);
-	t_push(list, "test3", index);
-	t_push(list, "test4", index);
-
-	if (list[0] != NULL)
-		printf("\nTEST 2: OK	%s", list[0]->str);
-
-	if (t_list_size(list[0]) == 3)
-		printf("TEST 3: OK");
+	//while (list)
+	//{
+	//	printf("\n%d", list->index.end);
+	//	printf("\n%s", list->str);
+	//	list = list->next;
+	//}
 	return (0);
 
 }
