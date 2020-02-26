@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/25 17:16:43 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/25 22:35:57 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,22 +69,35 @@ t_word		*get_string(char const *s, t_word *list)
 	int i;
 	int a;
 	int b;
+
+	int ttt = 0;
+
 	char *tmp;
 	t_word *flag;
 	flag = list;
 
+	printf("\n LIST COUNT: %d", t_list_size(flag));
+	//while (flag)
+	//while (++ttt < 5)
 	while (flag)
 	{
 		i = -1;
 		a = flag->index.start;
 		b = flag->index.end;
-		tmp = (char *)malloc((b - a + 1) * sizeof(char));
+
+		printf("\n---> a: %d", a);
+		printf("\n---> b: %d", b);
+		
+		tmp = ft_strnew(b - a + 1);
 		while (++i <= (b - a))
 		{
+			printf("\n1: %d", i);
 			tmp[i] = s[a + i];
 		}
+		printf("\n2: %s", tmp);
 		flag->str = tmp;
-		flag = flag->next;	
+		flag = flag->next;
+		free(tmp); /////////////////	
 
 	}
 	return (list);
@@ -131,20 +144,22 @@ char	**ft_strsplit(char const *s, char c)
 	i = -1;
 	list = get_string(s, search(s, c, -1, list));
 	list_size = t_list_size(list);
-
-	tmp = (char **)malloc((list_size - 1) * sizeof(char *));
-
-	while (++i < list_size)
-	{
+	printf("%d", list_size);
+	tmp = (char **)malloc((list_size + 1) * sizeof(char *));
+printf("here\n");
+printf("LIST SIZE ->>>>: %d", list_size);
+	while (++i <= list_size)
+	{	
 		j = -1;
+		printf("\n3:	%d", (int)ft_strlen(list->str));
 		tmp[i] = (char *)malloc(ft_strlen(list->str) * sizeof(char));
-		while (++j <= ft_strlen(list->str))
+		while (++j <= (int)ft_strlen(list->str))
 		{
 			tmp[i][j] = list->str[j];
 		}
 		list = list->next;
 	}
-
+printf("before return ");
 	return (tmp);
 
 	
@@ -154,33 +169,26 @@ char	**ft_strsplit(char const *s, char c)
 
 int main ()
 {
-	//t_word *list;
+	t_word *list;
 
-	//list = 0;
-	int i = -1;
-	int j = -1;
-	char str[] = "****string*test****mooore**doo";
-	//list = get_string(search(str, '*', -1, list));
+	list = 0;
+	
+	char str[] = "****infinity*string****test**str";
+	//list = get_string(str, search(str, '*', -1, list));
 	
 	char **test;
 
 	test = ft_strsplit(str, '*');
 
-	while (test[++i])
-		printf("%s\n", test[i]);
-	//while(test[++i])
- 	//{			while(test[i][++j])
-	//		write(1, test[i][j], 1);
-	//	write(1, "\n", 1);
-	//}
-	
+	printf("------------------------\n");
+	printf("%s", test[1]);
+	while (test)
+	{
+		printf("\n_>>>>>>>>>>>>>>>>>>>>%s", *test);
+		test++;
+	}
 
-	//while (list)
-	//{
-	//	printf("\n%d", list->index.end);
-	//	printf("\n%s", list->str);
-	//	list = list->next;
-	//}
+	
 	return (0);
 
 }
