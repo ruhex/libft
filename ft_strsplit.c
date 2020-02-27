@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 22:50:44 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/27 02:14:40 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,14 @@ t_word		*search(const char *s, char c, int index, t_word *list)
 			tmp.start = index + 1;
 			flag++;
 		}
-		if ((s[index] != c) && ((s[index + 1] == c)
-					|| s[index + 1] == '\0'))
+		if (((s[index] != c) && (s[index + 1] == c))
+					|| ((s[index + 1] == '\0') && (s[index] != c)))
 		{
+			if (index == 0)
+          	{
+            	tmp.start = index;
+            	flag++;
+          	}
 			tmp.end = index;
 			flag++;
 		}
@@ -63,6 +68,8 @@ t_word		*search(const char *s, char c, int index, t_word *list)
 			t_push(&list, "str", tmp);
 			flag = 0;
 		}
+		if (s[index + 1] == '\0')
+			break;
 	}
 	return (list);
 }
@@ -89,28 +96,8 @@ char		**ft_strsplit(char const *s, char c)
 		{
 			tmp[i][j] = list->str[j];
 		}
-		tmp[i][j] = '\0';
 		list = list->next;
 	}
-	tmp[i][0] = '\0';
+	tmp[i + 1] = ft_strnew(0);
 	return (tmp);
-}
-
-int main ()
-{
-	t_word *list;
-
-	list = 0;
-
-	int i = 0;
-
-	char str[] = "      split       this for   me  !       ";
-    char **test;
-
-	test = ft_strsplit(str, '*');
-	while (*test != '\0')
-	{
-		printf("%s\n", *(test++));
-	}
-	return (0);
 }
