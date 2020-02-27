@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 08:51:58 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 21:13:15 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/26 20:14:35 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/26 20:38:30 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (ap && *ap)
+	char			*tmp;
+	unsigned int	i;
+
+	tmp = ft_strnew(ft_strlen(s));
+	i = -1;
+	if (s && tmp)
 	{
-		free(*ap);
-		*ap = NULL;
+		while (s[++i] != '\0')
+			tmp[i] = (*f)(i, s[i]);
+		tmp[i] = '\0';
+		return (tmp);
 	}
+	return (NULL);
 }

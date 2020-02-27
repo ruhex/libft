@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 08:51:58 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 21:13:15 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/26 20:26:40 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/26 20:36:05 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	if (ap && *ap)
+	if (s)
 	{
-		free(*ap);
-		*ap = NULL;
+		while (*s)
+			(*f)(s++);
 	}
 }

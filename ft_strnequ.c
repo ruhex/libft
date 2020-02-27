@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 08:51:58 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 21:13:15 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/26 21:39:12 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/26 21:56:07 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (ap && *ap)
+	size_t i;
+
+	i = -1;
+	if ((s1 && s2))
 	{
-		free(*ap);
-		*ap = NULL;
+		while (((*s1 != '\0') && (*s2 != '\0')) && (++i < n))
+			if (!(*(s1++) == *(s2++)))
+				return (0);
+		return (1);
 	}
+	return (0);
 }
