@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/27 02:14:40 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/27 18:31:32 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,15 @@ t_word		*search(const char *s, char c, int index, t_word *list)
 	{
 		if ((s[index] == c) && (s[index + 1] != c))
 		{
+			flag = 0;
 			tmp.start = index + 1;
 			flag++;
 		}
+		if (((index == 0) && (s[index + 1] != c)))
+        {
+          tmp.start = index;
+          flag++;
+        }
 		if (((s[index] != c) && (s[index + 1] == c))
 					|| ((s[index + 1] == '\0') && (s[index] != c)))
 		{
@@ -85,8 +91,12 @@ char		**ft_strsplit(char const *s, char c)
 	list = 0;
 	i = -1;
 	list = get_string(s, search(s, c, -1, list));
+	if (!(list))
+		return (NULL);
 	list_size = t_list_size(list);
-	tmp = (char **)malloc((list_size + 1) * sizeof(char *));
+	tmp = (char **)malloc((list_size + 2) * sizeof(char *));
+	if (!(tmp))
+		return (NULL);
 	while (list)
 	{
 		i++;
@@ -99,5 +109,20 @@ char		**ft_strsplit(char const *s, char c)
 		list = list->next;
 	}
 	tmp[i + 1] = ft_strnew(0);
-	return (tmp);
+	tmp[i + 1] = NULL;
+	if (tmp)
+		return (tmp);
+	return (NULL);
+}
+
+int main ()
+{
+	char *s = "      split       this for   me  !       ";
+	char **result = ft_strsplit(s, ' ');
+
+	while (*result != '\0')
+	{
+		printf("%s\n", *(result++));
+	}
+	return (0);
 }
