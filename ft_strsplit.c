@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/27 18:31:32 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/27 19:10:17 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,16 +113,4 @@ char		**ft_strsplit(char const *s, char c)
 	if (tmp)
 		return (tmp);
 	return (NULL);
-}
-
-int main ()
-{
-	char *s = "      split       this for   me  !       ";
-	char **result = ft_strsplit(s, ' ');
-
-	while (*result != '\0')
-	{
-		printf("%s\n", *(result++));
-	}
-	return (0);
 }

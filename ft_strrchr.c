@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 15:41:44 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/28 01:15:24 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/27 23:29:15 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/28 00:34:40 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*tmp;
-	int		i;
-	int		c;
+	char	*p;
 
-	i = -1;
-	c = 0;
-
-	if (!(s))
-		return (NULL);
-	while (s[++i] != '\0')
-		if((s[i] == ' ')
-				|| (s[i] == '\n')
-				|| (s[i] == '\t'))
-			c++;
-	tmp = ft_strnew(ft_strlen(s) - c);
-	if (!(tmp))
-		return (NULL);
-	while (*s != '\0')
+	p = NULL;
+	while (*s)
 	{
-		if((*s == ' ')
-				|| (*s == '\n')
-				|| (*s == '\t'))
-			s++;
-		else
-			*(tmp++) = *(s++);
+		if (*s == (char)c)
+			p = (char *)s;
+		if (*(s + 1) == (char)c)
+			p = (char *)(s + 1);
+		s++;
 	}
-	return (tmp);
-
+	return (p);
 }

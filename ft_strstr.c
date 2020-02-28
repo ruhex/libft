@@ -6,29 +6,27 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:44:53 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/22 11:34:06 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/28 01:00:17 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int i;
-	int j;
-	char *tmp;
+	char	*s;
+	size_t		len;
 
-	tmp = ft_memalloc(ft_strlen(str));
-	i = 0;
-	j = 0;
-	while (tmp[i])
+	s = (char *)s1;
+	len = ft_strlen(s2);
+
+	if (ft_strlen(s1) < len)
+		return (NULL);
+	while ((s = ft_strchr(s, *s2)) != 0)
 	{
-		while (tmp[i + j] == to_find[j] && to_find[j])
-			j++;
-		if (!to_find[j])
-			return (&tmp[i]);
-		j = 0;
-		i++;
+		if (ft_strncmp(s, s2, len) == 0)
+			return (s);
+		s++;
 	}
 	return (0);
 }

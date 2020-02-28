@@ -6,21 +6,14 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 22:32:19 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/18 23:12:23 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/28 00:40:40 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((--n != 0) && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return (s1 - s2);
+	while (((--n != 0) && (*s1 == *s2++)))
+		if (*s1++ == '\0')
+			return (0);
+	return (*(const unsigned char *)s1 - *(const unsigned char *)(s2 - 1));
 }
