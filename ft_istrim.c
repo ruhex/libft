@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_istrim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 15:34:58 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/28 21:49:20 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/28 21:54:10 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/28 21:54:24 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int ft_istrim(char c)
 {
-	char *tmp;
-
-	tmp = ft_strnew(ft_strlen(s1));
-	if (!(tmp))
-		return (NULL);
-	tmp = ft_memcpy(tmp, s1, ft_strlen(s1));
-	if (!(tmp))
-		return (NULL);
-	return (tmp);
+  if ((c == ' ') || (c == '\n') || (c == '\t'))
+      return (0);
+  return (-24);
 }

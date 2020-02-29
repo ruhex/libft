@@ -1,15 +1,8 @@
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-int main ()
+int    main(void)
 {
-	t_index *index;
-
-	index = (t_index *)malloc(sizeof(t_index));
-	index->start = 1;
-
-	printf("%d", index->start);
-
+    int c = L'ø';
+    ft_putchar(c);
 	return (0);
 }
