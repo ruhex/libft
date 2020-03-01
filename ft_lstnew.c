@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 21:50:50 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 21:59:44 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/29 22:34:56 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		tmp->content = content;
+		if (!(tmp->content = ft_memalloc(content_size)))
+			return (NULL);
+		ft_memcpy(tmp->content, content, content_size);
 		tmp->content_size = content_size;
 	}
 	tmp->next = NULL;
