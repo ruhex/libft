@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 17:44:53 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 14:03:09 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/29 17:26:20 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/29 19:11:21 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char	*s;
-	size_t		len;
+	size_t len;
 
-	s = (char *)s1;
-	len = ft_strlen(s2);
+	len = ft_strlen(dest);
 
-	if (*s2 == 0)
-		return (s);
-	if (ft_strlen(s1) < len)
-		return (NULL);
-	while  ((s = ft_strchr(s, *s2)) != 0)
-	{
-		if (ft_strncmp(s, s2, len) == 0)
-			return (s);
-		s++;
-	}
-	return (0);
+	if (size > len)
+		ft_strncat(dest, src, (size - len - 1));
+	if (size < len)
+		return (size + ft_strlen(src));
+	return (len + ft_strlen(src));
 }

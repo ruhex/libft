@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 17:44:53 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 14:03:09 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/29 17:30:56 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/29 19:11:32 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_strncat(char *dest, const char *src, size_t nb)
 {
-	char	*s;
-	size_t		len;
+	size_t	i;
+	size_t	j;
 
-	s = (char *)s1;
-	len = ft_strlen(s2);
-
-	if (*s2 == 0)
-		return (s);
-	if (ft_strlen(s1) < len)
-		return (NULL);
-	while  ((s = ft_strchr(s, *s2)) != 0)
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0' && j < nb)
 	{
-		if (ft_strncmp(s, s2, len) == 0)
-			return (s);
-		s++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
