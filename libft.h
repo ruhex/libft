@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:54:32 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 17:16:55 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/29 23:40:59 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,6 @@ void			ft_lstaddend(t_list **alst, t_list *new);
 int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa_base(int value, char *base);
 t_word			*t_create_elem(const char *str, t_index index);
-t_word			*get_string(char const *s, t_word *list);
-t_word			*search(const char *s, char c, int index, t_word *list);
 void			t_push(t_word **list, const char *str, t_index index);
 int				t_list_size(t_word *list);
 int				ft_istrim(char c);
