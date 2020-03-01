@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.c                                        :+:      :+:    :+:   */
+/*   ft_list_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:12:52 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 16:23:05 by m-movcha         ###   ########.fr       */
+/*   Created: 2020/02/29 23:53:21 by m-movcha          #+#    #+#             */
+/*   Updated: 2020/02/29 23:53:37 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_word	*t_create_elem(const char *str, t_index index)
+static t_word	*ft_create_word(const char *str, t_index index)
 {
 	t_word *tmp;
 
@@ -25,7 +25,7 @@ t_word	*t_create_elem(const char *str, t_index index)
 	return (tmp);
 }
 
-void	t_push(t_word **list, const char *str, t_index index)
+void	ft_list_push(t_word **list, const char *str, t_index index)
 {
 	t_word	*tmp;
 
@@ -34,27 +34,8 @@ void	t_push(t_word **list, const char *str, t_index index)
 	{
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next = t_create_elem(str, index);
+		tmp->next = ft_create_word(str, index);
 	}
 	else
-		*list = t_create_elem(str, index);
-}
-
-int		t_list_size(t_word *list)
-{
-	int		i;
-	t_word	*tmp;
-
-	i = 0;
-	tmp = list;
-	if (list)
-	{
-		i = 1;
-		while (tmp->next)
-		{
-			tmp = tmp->next;
-			i++;
-		}
-	}
-	return (i);
+		*list = ft_create_word(str, index);
 }

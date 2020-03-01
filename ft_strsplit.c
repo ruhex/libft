@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/27 19:10:17 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/02/29 23:53:15 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-t_word		*get_string(char const *s, t_word *list)
+static t_word		*get_string(char const *s, t_word *list)
 {
 	int		i;
 	int		a;
@@ -39,7 +39,7 @@ t_word		*get_string(char const *s, t_word *list)
 	return (list);
 }
 
-t_word		*search(const char *s, char c, int index, t_word *list)
+static t_word		*search(const char *s, char c, int index, t_word *list)
 {
 	t_index	tmp;
 	int		flag;
@@ -71,7 +71,7 @@ t_word		*search(const char *s, char c, int index, t_word *list)
 		}
 		if (flag == 2)
 		{
-			t_push(&list, "str", tmp);
+			ft_list_push(&list, "str", tmp);
 			flag = 0;
 		}
 		if (s[index + 1] == '\0')
@@ -93,7 +93,7 @@ char		**ft_strsplit(char const *s, char c)
 	list = get_string(s, search(s, c, -1, list));
 	if (!(list))
 		return (NULL);
-	list_size = t_list_size(list);
+	list_size = ft_list_size(list);
 	tmp = (char **)malloc((list_size + 2) * sizeof(char *));
 	if (!(tmp))
 		return (NULL);
