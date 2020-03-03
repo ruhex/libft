@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 23:53:15 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 17:51:49 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,19 @@ static t_word		*get_string(char const *s, t_word *list)
 	t_word	*flag;
 
 	flag = list;
+	if (flag == NULL)
+	{
+		return (NULL);
+	}
 	while (flag)
 	{
 		i = -1;
 		a = flag->index.start;
 		b = flag->index.end;
+
+		if ((a < 0) || (b < 0))
+			return (NULL);
+
 		tmp = ft_strnew(b - a + 1);
 		while (++i <= (b - a))
 		{
@@ -71,12 +79,13 @@ static t_word		*search(const char *s, char c, int index, t_word *list)
 		}
 		if (flag == 2)
 		{
-			ft_list_push(&list, "str", tmp);
+			ft_list_push(&list, "-999", tmp);
 			flag = 0;
 		}
 		if (s[index + 1] == '\0')
 			break;
 	}
+
 	return (list);
 }
 
@@ -90,11 +99,22 @@ char		**ft_strsplit(char const *s, char c)
 
 	list = 0;
 	i = -1;
+
+
+
 	list = get_string(s, search(s, c, -1, list));
 	if (!(list))
-		return (NULL);
+	{
+		tmp = (char **)malloc((1) * sizeof(char *));
+		if (!(tmp))
+			return (NULL);
+		tmp[0] = 0;
+		//*tmp = NULL;
+		return (tmp);
+	}
 	list_size = ft_list_size(list);
-	tmp = (char **)malloc((list_size + 2) * sizeof(char *));
+
+	tmp = (char **)malloc((list_size + 1) * sizeof(char *));
 	if (!(tmp))
 		return (NULL);
 	while (list)
@@ -108,8 +128,9 @@ char		**ft_strsplit(char const *s, char c)
 		}
 		list = list->next;
 	}
-	tmp[i + 1] = ft_strnew(0);
-	tmp[i + 1] = NULL;
+	//tmp[i + 1] = ft_strnew(0);
+	tmp[i + 1] = 0;
+
 	if (tmp)
 		return (tmp);
 	return (NULL);
