@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 17:58:29 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 18:30:11 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 19:39:49 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 		return (s);
 	if (ft_strlen(s1) < len)
 		return (NULL);
-	while  ((s = ft_strchr(s, *s2)) != 0 || --n < 1)
+	while  ((s = ft_strchr(s, *s2)) != 0)
 	{
-		if (ft_strncmp(s, s2, len) == 0)
+		if ((ft_strncmp(s, s2, len) == 0) && (--n < 1) )
 			return (s);
 		s++;
 	}

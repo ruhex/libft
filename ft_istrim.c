@@ -6,15 +6,15 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 21:54:10 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/28 21:54:24 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:06:27 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_istrim(char c)
+int	ft_istrim(char c)
 {
-  if ((c == ' ') || (c == '\n') || (c == '\t'))
-      return (0);
-  return (-24);
+	if ((c == ' ') || (c == '\n') || (c == '\t'))
+		return (0);
+	return (-24);
 }

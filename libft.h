@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:54:32 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 23:52:47 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:04:27 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_index
 
 typedef struct	s_word
 {
-	char const 		*str;
+	char const		*str;
 	struct s_index	index;
 	struct s_word	*next;
 }				t_word;

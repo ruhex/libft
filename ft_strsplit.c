@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/02 17:51:49 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:37:55 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 static t_word		*get_string(char const *s, t_word *list)
 {
 	int		i;
-	int		a;
-	int		b;
 	char	*tmp;
 	t_word	*flag;
 
@@ -30,17 +28,11 @@ static t_word		*get_string(char const *s, t_word *list)
 	while (flag)
 	{
 		i = -1;
-		a = flag->index.start;
-		b = flag->index.end;
-
-		if ((a < 0) || (b < 0))
+		if ((flag->index.start < 0) || (flag->index.end < 0))
 			return (NULL);
-
-		tmp = ft_strnew(b - a + 1);
-		while (++i <= (b - a))
-		{
-			tmp[i] = s[a + i];
-		}
+		tmp = ft_strnew(flag->index.end - flag->index.start + 1);
+		while (++i <= (flag->index.end - flag->index.start))
+			tmp[i] = s[flag->index.start + i];
 		flag->str = tmp;
 		flag = flag->next;
 	}

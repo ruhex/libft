@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:44:53 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/29 14:03:09 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:05:27 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ char	*ft_strstr(const char *s1, const char *s2)
 
 	s = (char *)s1;
 	len = ft_strlen(s2);
-
 	if (*s2 == 0)
 		return (s);
 	if (ft_strlen(s1) < len)
 		return (NULL);
-	while  ((s = ft_strchr(s, *s2)) != 0)
+	while ((s = ft_strchr(s, *s2)) != 0)
 	{
 		if (ft_strncmp(s, s2, len) == 0)
 			return (s);

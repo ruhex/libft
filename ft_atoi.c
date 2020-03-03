@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 12:02:24 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/28 22:04:01 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 19:57:23 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,5 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = (nbr * 10) + str[i++] - '0';
-	nbr *= minus;
-	if (nbr > 2147483647)
-		return (2147483647);
-	if (nbr < -2147483648)
-		return (-2147483648);
-	return (nbr);
+	return (nbr * minus);
 }

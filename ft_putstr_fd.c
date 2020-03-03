@@ -6,12 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 20:34:10 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 19:54:02 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:04:05 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void ft_putstr_fd(char const *s, int fd)
+
+void	ft_putstr_fd(char const *s, int fd)
 {
 	while (*s)
 	{
