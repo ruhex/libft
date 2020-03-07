@@ -6,18 +6,23 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:44:38 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 22:12:58 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 12:12:44 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strequ(char const *s1, char const *s2)
 {
 	if (s1 && s2)
 	{
-		while ((*s1 != '\0') && (*s2 != '\0'))
-			if (!(*(s1++) == *(s2++)))
-				return (0);
-		return (1);
+		if (ft_strlen(s1) == ft_strlen(s2))
+		{
+			while ((*s1 != '\0') && (*s2 != '\0'))
+				if (!(*(s1++) == *(s2++)))
+					return (0);
+			return (1);
+		}
 	}
 	return (0);
 }
