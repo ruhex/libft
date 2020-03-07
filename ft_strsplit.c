@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/02 20:37:55 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/06 18:46:21 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static t_word		*search(const char *s, char c, int index, t_word *list)
 			tmp.end = index;
 			flag++;
 		}
-		if (flag == 2)
+		if (flag >= 2)
 		{
 			ft_list_push(&list, "-999", tmp);
 			flag = 0;
@@ -126,4 +126,16 @@ char		**ft_strsplit(char const *s, char c)
 	if (tmp)
 		return (tmp);
 	return (NULL);
+}
+
+
+int main()
+{
+	char **tt;
+
+	tt = ft_strsplit("1", '*');
+
+	while (*tt)
+		printf("%s\n", *(tt++));
+
 }
