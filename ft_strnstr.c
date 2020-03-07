@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 17:58:29 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/07 03:10:44 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 03:47:05 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ char	*ft_strnstr(const char *s1, const char *find, size_t n)
 
 	if (*find == 0)
 		return (s);
-	//if (ft_strlen(s1) < len)
-	//	return (NULL);
-	while  ((*s != '\0') && (--n >= len))
+	while  ((*s != '\0') && (n-- > (len - 1)))
 	{
 		if (*s == *find)
 			if ((ft_strncmp(s, find, len) == 0))
