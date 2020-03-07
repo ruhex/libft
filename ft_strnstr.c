@@ -6,28 +6,29 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 17:58:29 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/02 19:39:49 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 03:10:44 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *find, size_t n)
 {
 	char	*s;
 	size_t		len;
 
 	s = (char *)s1;
-	len = ft_strlen(s2);
+	len = ft_strlen(find);
 
-	if (*s2 == 0)
+	if (*find == 0)
 		return (s);
-	if (ft_strlen(s1) < len)
-		return (NULL);
-	while  ((s = ft_strchr(s, *s2)) != 0)
+	//if (ft_strlen(s1) < len)
+	//	return (NULL);
+	while  ((*s != '\0') && (--n >= len))
 	{
-		if ((ft_strncmp(s, s2, len) == 0) && (--n < 1) )
-			return (s);
+		if (*s == *find)
+			if ((ft_strncmp(s, find, len) == 0))
+				return (s);
 		s++;
 	}
 	return (0);
