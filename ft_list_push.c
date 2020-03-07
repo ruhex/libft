@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 23:53:21 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/02 20:06:57 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 13:27:50 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static		t_word	*ft_create_word(const char *str, t_index index)
 {
-	t_word *tmp;
+	t_word	*tmp;
 
 	if (!(tmp = (t_word *)malloc(sizeof(t_word))))
 		return (NULL);

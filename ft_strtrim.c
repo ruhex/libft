@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 15:41:44 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/02 19:59:16 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 13:35:51 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ char	*ft_strtrim(char const *s)
 {
 	t_index *index;
 	char	*tmp;
-	int 	len;
+	int		len;
 	int		i;
 
 	i = 0;
-	index = (t_index *)malloc(sizeof(t_index));
 	len = ft_strlen(s);
-	if (!((index) && (s)))
+	if (!((index = (t_index *)malloc(sizeof(t_index))) && (s)))
 		return (NULL);
-	while (ft_istrim(s[i++]) == 0);
+	while (ft_istrim(s[i++]) == 0)
+		;
 	index->start = i - 1;
 	i = len;
-	while (ft_istrim(s[--i]) == 0);
+	while (ft_istrim(s[--i]) == 0)
+		;
 	index->end = i;
-	if ( index->start > index->end)
-    	index->end = index->start - 1;
+	if (index->start > index->end)
+		index->end = index->start - 1;
 	len = index->end - index->start;
 	i = -1;
-	tmp = ft_strnew(len + 1);
-	if (!(tmp))
+	if (!(tmp = ft_strnew(len)))
 		return (NULL);
 	while (++i <= len)
 		tmp[i] = s[index->start + i];

@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/06 19:17:52 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 14:15:12 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_word		*get_string(char const *s, t_word *list)
 	return (list);
 }
 
-static t_word		*search(const char *s, char c, int index, t_word *list)
+static t_word	*search(const char *s, char c, int index, t_word *list)
 {
 	t_index	tmp;
 	int		flag;
@@ -54,18 +54,18 @@ static t_word		*search(const char *s, char c, int index, t_word *list)
 			flag++;
 		}
 		if (((index == 0) && (s[index + 1] != c)))
-        {
-          tmp.start = index;
-          flag++;
-        }
+		{
+			tmp.start = index;
+			flag++;
+		}
 		if (((s[index] != c) && (s[index + 1] == c))
 					|| ((s[index + 1] == '\0') && (s[index] != c)))
 		{
 			if (index == 0)
-          	{
-            	tmp.start = index;
-            	flag++;
-          	}
+			{
+				tmp.start = index;
+				flag++;
+			}
 			tmp.end = index;
 			flag++;
 		}
@@ -75,55 +75,36 @@ static t_word		*search(const char *s, char c, int index, t_word *list)
 			flag = 0;
 		}
 		if (s[index + 1] == '\0')
-			break;
+			break ;
 	}
-
 	return (list);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	t_word		*list;
 	char		**tmp;
-	int			list_size;
 	int			i;
 	int			j;
 
 	list = 0;
 	i = -1;
-
-
-
-	list = get_string(s, search(s, c, -1, list));
-	if (!(list))
+	if (!(list = get_string(s, search(s, c, -1, list))))
 	{
-		tmp = (char **)malloc((1) * sizeof(char *));
-		if (!(tmp))
+		if (!(tmp = (char **)malloc((1) * sizeof(char *))))
 			return (NULL);
 		tmp[0] = 0;
-		//*tmp = NULL;
 		return (tmp);
 	}
-	list_size = ft_list_size(list);
-
-	tmp = (char **)malloc((list_size + 1) * sizeof(char *));
-	if (!(tmp))
+	if (!(tmp = (char **)malloc((ft_list_size(list) + 1) * sizeof(char *))))
 		return (NULL);
-	while (list)
+	while (list && ((j = -1) == -1))
 	{
-		i++;
-		j = -1;
-		tmp[i] = (char *)malloc((ft_strlen(list->str) + 1) * sizeof(char));
+		tmp[++i] = (char *)malloc((ft_strlen(list->str) + 1) * sizeof(char));
 		while (++j <= (int)ft_strlen(list->str))
-		{
 			tmp[i][j] = list->str[j];
-		}
 		list = list->next;
 	}
-	//tmp[i + 1] = ft_strnew(0);
 	tmp[i + 1] = 0;
-
-	if (tmp)
-		return (tmp);
-	return (NULL);
+	return (tmp);
 }
