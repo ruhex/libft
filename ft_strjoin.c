@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:55:03 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/07 19:33:33 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 21:07:31 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*tmp;
 	char	*p;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	if (!(tmp = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 		return (NULL);

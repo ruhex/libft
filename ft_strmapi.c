@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:14:35 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/02/26 20:38:30 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 23:21:01 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*tmp;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	tmp = ft_strnew(ft_strlen(s));
 	i = -1;
 	if (s && tmp)

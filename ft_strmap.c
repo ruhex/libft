@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:32:00 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/07 20:31:42 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 23:20:16 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*tmp;
 	char	*p;
 
+	if (!s)
+		return (0);
 	tmp = ft_strnew(ft_strlen(s));
 	if (!(tmp))
 		return (NULL);
