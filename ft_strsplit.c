@@ -6,12 +6,10 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/07 14:15:12 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 20:08:14 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 
 static t_word		*get_string(char const *s, t_word *list)
@@ -39,36 +37,47 @@ static t_word		*get_string(char const *s, t_word *list)
 	return (list);
 }
 
-static t_word	*search(const char *s, char c, int index, t_word *list)
+static void			ft_if(char *c, t_index *index, int *flag, int i)
+{
+	if ((c[0] == c[2]) && (c[1] != c[2]))
+	{
+		*flag = 0;
+		*flag += 1;
+		index->start = i + 1;
+	}
+	if ((i == 0) && (c[1] != c[2]))
+	{
+		index->start = i;
+		*flag += 1;
+	}
+	if (((c[0] != c[2]) && (c[1] == c[2]))
+			|| ((c[1] == '\0') && (c[0] != c[2])))
+	{
+		if (i == 0)
+		{
+			index->start = i;
+			*flag += 1;
+		}
+		index->end = i;
+		*flag += 1;
+	}
+}
+
+static t_word		*search(const char *s, char c, int index, t_word *list)
 {
 	t_index	tmp;
 	int		flag;
+	char	*cc;
 
 	flag = 0;
+	if (!(cc = (char *)malloc(3 * sizeof(char))))
+		return (NULL);
 	while (s[++index] != '\0')
 	{
-		if ((s[index] == c) && (s[index + 1] != c))
-		{
-			flag = 0;
-			tmp.start = index + 1;
-			flag++;
-		}
-		if (((index == 0) && (s[index + 1] != c)))
-		{
-			tmp.start = index;
-			flag++;
-		}
-		if (((s[index] != c) && (s[index + 1] == c))
-					|| ((s[index + 1] == '\0') && (s[index] != c)))
-		{
-			if (index == 0)
-			{
-				tmp.start = index;
-				flag++;
-			}
-			tmp.end = index;
-			flag++;
-		}
+		cc[0] = s[index];
+		cc[1] = s[index + 1];
+		cc[2] = c;
+		ft_if(cc, &tmp, &flag, index);
 		if (flag >= 2)
 		{
 			ft_list_push(&list, "-999", tmp);
@@ -80,7 +89,7 @@ static t_word	*search(const char *s, char c, int index, t_word *list)
 	return (list);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
 	t_word		*list;
 	char		**tmp;

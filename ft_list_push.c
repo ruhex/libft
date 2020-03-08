@@ -6,13 +6,13 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 23:53:21 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/07 13:27:50 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:59:39 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static		t_word	*ft_create_word(const char *str, t_index index)
+static t_word	*ft_create_word(const char *str, t_index index)
 {
 	t_word	*tmp;
 
@@ -25,7 +25,7 @@ static		t_word	*ft_create_word(const char *str, t_index index)
 	return (tmp);
 }
 
-void		ft_list_push(t_word **list, const char *str, t_index index)
+void			ft_list_push(t_word **list, const char *str, t_index index)
 {
 	t_word	*tmp;
 
