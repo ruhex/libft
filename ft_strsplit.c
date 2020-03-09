@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/08 00:02:19 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:52:26 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,24 @@ char				**ft_strsplit(char const *s, char c)
 	int			i;
 	int			j;
 
+	if (!s || !c)
+		return (0);
 	list = 0;
 	i = -1;
-	if (!(s && c))
-		return (NULL);
-	if (!(list = get_string(s, search(s, c, -1, list))))
+	if (!((list = get_string(s, search(s, c, -1, list))) && s))
 	{
 		if (!(tmp = (char **)malloc((1) * sizeof(char *))))
 			return (NULL);
 		tmp[0] = 0;
 		return (tmp);
 	}
+	if (!list)
+		return (0);
 	if (!(tmp = (char **)malloc((ft_list_size(list) + 1) * sizeof(char *))))
 		return (NULL);
 	while (list && ((j = -1) == -1))
 	{
+		j = -1;
 		tmp[++i] = (char *)malloc((ft_strlen(list->str) + 1) * sizeof(char));
 		while (++j <= (int)ft_strlen(list->str))
 			tmp[i][j] = list->str[j];
@@ -118,14 +121,4 @@ char				**ft_strsplit(char const *s, char c)
 	}
 	tmp[i + 1] = 0;
 	return (tmp);
-}
-
-int main()
-{
-	char **tt;
-
-	tt = ft_strsplit("!", '*');
-
-	printf("%s", *tt);
-	return (0);
 }
