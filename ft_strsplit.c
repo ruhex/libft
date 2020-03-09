@@ -6,11 +6,15 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:55:59 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/08 19:52:26 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:55:32 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
 
 static t_word		*get_string(char const *s, t_word *list)
 {
@@ -19,10 +23,8 @@ static t_word		*get_string(char const *s, t_word *list)
 	t_word	*flag;
 
 	flag = list;
-	if (flag == NULL)
-	{
-		return (NULL);
-	}
+	if (!flag)
+		return (0);
 	while (flag)
 	{
 		i = -1;
@@ -89,31 +91,35 @@ static t_word		*search(const char *s, char c, int index, t_word *list)
 	return (list);
 }
 
+char				**get_massiv(void)
+{
+	char **tmp;
+
+	if (!(tmp = (char **)malloc((1) * sizeof(char *))))
+		return (0);
+	tmp[0] = 0;
+	return (tmp);
+}
+
 char				**ft_strsplit(char const *s, char c)
 {
-	t_word		*list;
-	char		**tmp;
-	int			i;
-	int			j;
+	t_word	*list;
+	char	**tmp;
+	int		i;
+	int		j;
 
-	if (!s || !c)
-		return (0);
 	list = 0;
 	i = -1;
-	if (!((list = get_string(s, search(s, c, -1, list))) && s))
-	{
-		if (!(tmp = (char **)malloc((1) * sizeof(char *))))
-			return (NULL);
-		tmp[0] = 0;
-		return (tmp);
-	}
-	if (!list)
-		return (0);
+	if (!s || !c)
+		return (NULL);
+	if (!(list = search(s, c, -1, list)))
+		return (get_massiv());
+	if (!(list = get_string(s, list)))
+		return (get_massiv());
 	if (!(tmp = (char **)malloc((ft_list_size(list) + 1) * sizeof(char *))))
 		return (NULL);
 	while (list && ((j = -1) == -1))
 	{
-		j = -1;
 		tmp[++i] = (char *)malloc((ft_strlen(list->str) + 1) * sizeof(char));
 		while (++j <= (int)ft_strlen(list->str))
 			tmp[i][j] = list->str[j];
