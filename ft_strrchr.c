@@ -6,7 +6,7 @@
 /*   By: m-movcha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 23:29:15 by m-movcha          #+#    #+#             */
-/*   Updated: 2020/03/01 19:01:16 by m-movcha         ###   ########.fr       */
+/*   Updated: 2020/03/08 17:27:53 by m-movcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*p;
 
-	p = NULL;
+	p = 0;
+	if (s[0] == c)
+		return ((char *)s);
 	while (*s)
 	{
 		if (*s == (char)c)
